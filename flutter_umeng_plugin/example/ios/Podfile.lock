@@ -1,0 +1,72 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_umeng_plugin (0.0.1):
+    - Flutter
+    - UMCAnalytics
+    - UMCCommon (~> 2.1.1)
+    - UMCCommonLog
+    - UMCErrorCatch
+    - UMCPush
+    - UMCSecurityPlugins
+    - UMCShare/Social/ReducedQQ
+    - UMCShare/Social/ReducedSina
+    - UMCShare/Social/ReducedWeChat
+    - UMCShare/UI
+  - UMCAnalytics (6.0.5):
+    - UMCCommon
+  - UMCCommon (2.1.1)
+  - UMCCommonLog (1.0.0)
+  - UMCErrorCatch (1.0.0):
+    - UMCCommon
+  - UMCPush (3.2.4):
+    - UMCCommon
+  - UMCSecurityPlugins (1.0.6)
+  - UMCShare/Core (6.9.6):
+    - UMCCommon
+  - UMCShare/Social/ReducedQQ (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedSina (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedWeChat (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/UI (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios`)
+  - flutter_umeng_plugin (from `.symlinks/plugins/flutter_umeng_plugin/ios`)
+
+SPEC REPOS:
+  trunk:
+    - UMCAnalytics
+    - UMCCommon
+    - UMCCommonLog
+    - UMCErrorCatch
+    - UMCPush
+    - UMCSecurityPlugins
+    - UMCShare
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  flutter_umeng_plugin:
+    :path: ".symlinks/plugins/flutter_umeng_plugin/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  flutter_umeng_plugin: 1d20e5acb1998a3dc64d4c8bfafc821f844b144f
+  UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
+  UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
+  UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
+  UMCErrorCatch: 51f1b68f920233e90a3fa6d51f0456174507ec78
+  UMCPush: 1edd856027dcf905333effb4040ace5d236a7316
+  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+  UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
+
+PODFILE CHECKSUM: 7fb83752f59ead6285236625b82473f90b1cb932
+
+COCOAPODS: 1.8.0

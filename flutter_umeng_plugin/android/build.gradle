@@ -5,6 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
     }
 
     dependencies {
@@ -16,6 +17,7 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
     }
 }
 
@@ -30,5 +32,11 @@ android {
     }
     lintOptions {
         disable 'InvalidPackage'
+    }
+    dependencies {
+        api 'com.umeng.umsdk:common:2.0.2'
+        api 'com.umeng.umsdk:analytics:8.0.2'
+        api 'com.umeng.umsdk:utdid:1.1.5.3'
+        api 'com.umeng.umsdk:push:6.0.1'
     }
 }

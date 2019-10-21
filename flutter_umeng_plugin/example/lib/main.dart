@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
      initUMeng(); //初始化友盟控件
-     initPushState();
+    //  initPushState();
      FlutterUmengPlugin.logPageView("flutterHomePage",seconds: 10);
   }
 

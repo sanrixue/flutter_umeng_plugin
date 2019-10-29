@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
      initUMeng(); //初始化友盟控件
-    //  initPushState();
+     initPushState();
      FlutterUmengPlugin.logPageView("flutterHomePage",seconds: 10);
   }
 
@@ -61,11 +61,12 @@ class _MyAppState extends State<MyApp> {
     String umSocialSDKVersion;
     try {
       umSocialSDKVersion = await FlutterUmengPlugin.shareInit(
-        umengAppkey: "5d8d6dbf570df3c044000480", //your Umeng appkey
+        umengAppkey: "5db7a5424ca357186c000465", //your Umeng appkey
+        umengMessageSecret: 'e53f592870e6d34e02f09b10eeebaf52', //your Umeng Message Secret Of Android 
         channel: "App Store", //your Umeng channel
         //以下key secret 需要在各自的开放平台申请
-        wxAppKey: "",
-        wxAppSecret: "",
+        wxAppKey: "wxf88b59b3cd70a18d",
+        wxAppSecret: "420baa192d1eeec5787c9956269515a7",
         wxRedirectURL: "http://mobile.umeng.com/social",//默认回调
         qqAppID: "",
         qqRedirectURL: "http://mobile.umeng.com/social",
@@ -74,7 +75,7 @@ class _MyAppState extends State<MyApp> {
         wbRedirectURL: "",//微博中设置
       );
       umSocialSDKVersion = await FlutterUmengPlugin.analyticsInit(
-        umengAppkey: "5d8d6dbf570df3c044000480", //your Umeng appkey
+        umengAppkey: "5db7a5424ca357186c000465", //your Umeng appkey
         channel: "App Store", //your Umeng channel
       );
     } on PlatformException {
@@ -130,7 +131,7 @@ class _MyAppState extends State<MyApp> {
   Future<void> shareWebView() async {
     String result;
     try {
-      result = await FlutterUmengPlugin.shareWeb(shareTitle: '分享标题',descr:'分享简介',icon: 'AppIcon',webUrl: 'www.baidu.com' );
+      result = await FlutterUmengPlugin.shareWeb(shareTitle: '分享标题',descr:'分享简介',icon: 'AppIcon',webUrl: 'https://www.baidu.com' );
     } on PlatformException {
       result = 'fail';
     }

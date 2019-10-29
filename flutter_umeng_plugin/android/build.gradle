@@ -17,6 +17,7 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
         maven { url 'https://dl.bintray.com/umsdk/release' }
     }
 }
@@ -28,7 +29,14 @@ android {
 
     defaultConfig {
         minSdkVersion 16
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //设置支持的SO库架构
+            //AS调试的时候，使用的是JIT编译模式，需要点击运行下拉菜单中的Edit Configuration...，增加一个参数：--target-platform android-arm，强行指定armeabi-v7a，否则是不能启动的。
+            //flutter build apk时，由于是AOT版本，所以肯定是armeabi-v7a
+            abiFilters 'armeabi-v7a'//,'armeabi','arm64-v8a'
+        }
     }
     lintOptions {
         disable 'InvalidPackage'
@@ -36,8 +44,13 @@ android {
     dependencies {
         implementation fileTree(include: ['*.jar'], dir: 'libs')
         implementation 'com.android.support:support-v4:27.0.0'
-
-        implementation files('/Users/xueyujing/Desktop/Flutter/flutter/bin/cache/artifacts/engine/android-x64/flutter.jar')
+        implementation 'com.umeng.sdk:utdid:latest.integration'
+        implementation 'com.umeng.umsdk:analytics:8.0.0'
+        implementation 'com.umeng.sdk:push-xiaomi:latest.integration'
+        implementation 'com.umeng.sdk:push-huawei:latest.integration'
+        implementation 'com.umeng.sdk:push-meizu:latest.integration'
+        // implementation 'com.google.code.gson:gson:latest.integration'
+//        implementation files('/Users/xueyujing/Desktop/Flutter/flutter/bin/cache/artifacts/engine/android-x64/flutter.jar')
 
     }
 }

@@ -7,9 +7,14 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
+import android.nfc.Tag;
 import android.os.Build;
 import android.util.Log;
+
+import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.PushAgent;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMAuthListener;
@@ -46,7 +51,7 @@ public class FlutterUmengPlugin implements MethodCallHandler, ActivityResultList
   public static void registerWith(Registrar registrar) {
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "umeng_plugin");
       channel.setMethodCallHandler(new FlutterUmengPlugin(registrar, channel));
-
+      FlutterUmengPushPlugin.registerWith(registrar);
   }
 
     private FlutterUmengPlugin(Registrar registrar, MethodChannel channel) {
@@ -57,15 +62,21 @@ public class FlutterUmengPlugin implements MethodCallHandler, ActivityResultList
   @Override
   public void onMethodCall(MethodCall call, Result result) {
     if (call.method.equals("shareInit")) {
-        UMConfigure.setLogEnabled(true);
+        UMConfigure.setLogEnabled(false);
         String appkey = call.argument("umengAppkey");
+        String umengMessageSecret = call.argument("umengMessageSecret");
         String wxAppKey = call.argument("wxAppKey");
         String wxAppSecret = call.argument("wxAppSecret");
 
-        UMConfigure.init(this.registrar.context(), appkey, "flutter_umeng_plugin", UMConfigure.DEVICE_TYPE_PHONE, "");//58edcfeb310c93091c000be2 5965ee00734be40b580001a0
+
+        UMConfigure.init(this.registrar.context(), appkey, "flutter_umeng_plugin", UMConfigure.DEVICE_TYPE_PHONE, umengMessageSecret);//58edcfeb310c93091c000be2 5965ee00734be40b580001a0
         PlatformConfig.setWeixin(wxAppKey, wxAppSecret);
 //        PlatformConfig.setSinaWeibo(appKey, appSecret, redirectURL);
 //        PlatformConfig.setQQZone(appKey, appSecret, redirectURL);
+
+        // 选用AUTO页面采集模式
+        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.AUTO);
+
         result.success("shareInitSuccess");
     } 
     else if (call.method.equals("shareText")) {
@@ -125,26 +136,26 @@ public class FlutterUmengPlugin implements MethodCallHandler, ActivityResultList
       result.success("Android");
     } 
        else if (call.method.equals("beginPageView")) {
-      result.success("Android");
+        String pageName = call.argument("pageName");
+        MobclickAgent.onPageStart(pageName); //统计页面("MainScreen"为页面名称，可自定义)
     } 
        else if (call.method.equals("endPageView")) {
-      result.success("Android");
-    } 
+        String pageName = call.argument("pageName");
+        MobclickAgent.onPageEnd(pageName); //统计页面("MainScreen"为页面名称，可自定义)
+    }
       else if (call.method.equals("logPageView")) {
       result.success("Android");
     } 
      else if (call.method.equals("analyticsEvent")) {
       result.success("Android");
     }
-     else if (call.method.equals("configure")) {
-      result.success("Android");
-    } 
     else {
       result.notImplemented();
     }
   }
 
-    private void login(SHARE_MEDIA platform, final Result result) {
+
+  private void login(SHARE_MEDIA platform, final Result result) {
 
         UMShareAPI.get(registrar.activity()).getPlatformInfo(registrar.activity(), platform, new UMAuthListener() {
             @Override

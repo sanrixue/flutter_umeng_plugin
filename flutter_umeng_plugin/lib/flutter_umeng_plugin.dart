@@ -6,6 +6,7 @@ class FlutterUmengPlugin {
 
   static Future<String> shareInit({
     String umengAppkey,
+    String umengMessageSecret = '',
     String channel,
     String wxAppKey,
     String wxAppSecret,
@@ -18,6 +19,7 @@ class FlutterUmengPlugin {
   }) async {
     Map<String, dynamic> shareMap = {
       "umengAppkey": umengAppkey,
+      "umengMessageSecret": umengMessageSecret,
       "channel": channel,
       "wxAppKey": wxAppKey,
       "wxAppSecret": wxAppSecret,

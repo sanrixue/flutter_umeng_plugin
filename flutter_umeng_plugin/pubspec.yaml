@@ -1,8 +1,8 @@
 name: flutter_umeng_plugin
-description: 一个基于友盟IOS/Android 开发的一款分享 推送 埋点插件
-version: 0.0.1
+description: 一个基于友盟IOS/Android 开发的一款分享  埋点插件
+version: 1.0.0
 author: Eureka <1040811211@qq.com>
-homepage: https://gitee.com/sanrixue/UMeng.git
+homepage: https://github.com/sanrixue/flutter_umeng_plugin.git
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

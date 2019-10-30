@@ -1,7 +1,7 @@
 # Flutter Umeng Plugin
 Language:  | [中文简体](https://gitee.com/sanrixue/UMeng/blob/master/umeng_plugin/README.md)
 
-> 一个基于友盟IOS/Android 开发的一款分享 推送 埋点插件
+> 一个基于友盟IOS/Android 开发的一款分享 埋点插件 
 
 ## 分享支持平台
 > 微信 微信朋友圈 QQ 微博 
@@ -26,11 +26,6 @@ Language:  | [中文简体](https://gitee.com/sanrixue/UMeng/blob/master/umeng_p
 - 友盟share配置问题
   - https://developer.umeng.com/docs/66632/detail/66825
 
-
-
-## 最新动态
-### 🔥 `Flutter UMeng Plugin 0.1.0` 即将发布
-> 按时间顺序,展示重要的提交更新内容。
 
 
 ## 版本更新历史
@@ -60,12 +55,19 @@ Language:  | [中文简体](https://gitee.com/sanrixue/UMeng/blob/master/umeng_p
 ## Usage
   - 分享 
 ```dart
+  平台调用支持
+  iOS
   UmengPlugin.shareText(shareString: "分享测试数据");
   UmengPlugin.shareImage(shareImage: "https://mobile.umeng.com/images/pic/home/social/img-1.png");
   UmengPlugin.shareImageText(shareText: "分享文字",shareImage: "https://mobile.umeng.com/images/pic/home/social/img-1.png");
   UmengPlugin.shareWeb(shareTitle: '分享标题',descr:'分享简介',icon: 'AppIcon',webUrl: 'www.baidu.com' );
   UmengPlugin.shareMusic(shareTitle: '分享标题',descr:'分享简介',icon: 'AppIcon',musicUrl: 'http://c.y.qq.com/v8/playsong.html?songid=108782194&source=yqq#wechat_redirect');
   UmengPlugin.shareVideo(shareTitle: '分享标题',descr:'分享简介',icon: 'AppIcon',videoUrl: 'http://video.sina.com.cn/p/sports/cba/v/2013-10-22/144463050817.html');
+  
+  android 
+  UmengPlugin.shareText(shareString: "分享测试数据");
+  UmengPlugin.shareWeb(shareTitle: '分享标题',descr:'分享简介',icon: 'AppIcon',webUrl: 'www.baidu.com' );
+
 ```
   - 登录
 ```dart
@@ -73,17 +75,7 @@ Language:  | [中文简体](https://gitee.com/sanrixue/UMeng/blob/master/umeng_p
    UmengPlugin.loginQQ;
    UmengPlugin.loginSina;
 ```
- - 推送
-```dart
-  UmengPush().configure(
-      onMessage: (String message) async {
-        print("message: $message");
-        setState(() {
-        });
-        return true;
-      }
-  )
-```
+
  - 埋点
 ```dart
 UmengPlugin.beginPageView("flutterHomePage");

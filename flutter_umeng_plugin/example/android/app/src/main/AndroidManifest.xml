@@ -10,20 +10,6 @@
         android:name="io.flutter.app.FlutterApplication"
         android:label="flutter_umeng_plugin_example"
         android:icon="@mipmap/ic_launcher">
-        <meta-data android:name="UMENG_APPKEY" android:value="5db7a5424ca357186c000465">
-        </meta-data>
-        <meta-data android:name="UMENG_MESSAGE_SECRET" android:value="e53f592870e6d34e02f09b10eeebaf52">
-        </meta-data>
-        <meta-data android:name="UMENG_CHANNEL" android:value="channel" />
-        <meta-data android:name="MZ_APP_ID" android:value="从友盟后台拷贝的魅族_APP_ID">
-        </meta-data>
-        <meta-data android:name="MZ_APP_KEY" android:value="从友盟后台拷贝的魅族_APP_ID">
-        </meta-data>
-
-        <meta-data android:name="XM_APP_ID" android:value="2882303761518223091">
-        </meta-data>
-        <meta-data android:name="XM_APP_KEY" android:value="5551822336091">
-        </meta-data>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -46,10 +46,6 @@ android {
         implementation 'com.android.support:support-v4:27.0.0'
         implementation 'com.umeng.sdk:utdid:latest.integration'
         implementation 'com.umeng.umsdk:analytics:8.0.0'
-        implementation 'com.umeng.sdk:push-xiaomi:latest.integration'
-        implementation 'com.umeng.sdk:push-huawei:latest.integration'
-        implementation 'com.umeng.sdk:push-meizu:latest.integration'
-        // implementation 'com.google.code.gson:gson:latest.integration'
 //        implementation files('/Users/xueyujing/Desktop/Flutter/flutter/bin/cache/artifacts/engine/android-x64/flutter.jar')
 
     }

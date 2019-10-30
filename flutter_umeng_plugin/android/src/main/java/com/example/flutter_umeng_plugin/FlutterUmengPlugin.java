@@ -51,7 +51,6 @@ public class FlutterUmengPlugin implements MethodCallHandler, ActivityResultList
   public static void registerWith(Registrar registrar) {
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "umeng_plugin");
       channel.setMethodCallHandler(new FlutterUmengPlugin(registrar, channel));
-      FlutterUmengPushPlugin.registerWith(registrar);
   }
 
     private FlutterUmengPlugin(Registrar registrar, MethodChannel channel) {
